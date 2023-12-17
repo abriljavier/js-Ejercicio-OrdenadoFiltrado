@@ -1,0 +1,153 @@
+<!-- Filtrado y Ordenamiento de Datos:
+
+Muestra una lista de objetos (por ejemplo, libros, películas, etc.).
+Permite al usuario filtrar la lista por algún criterio (por ejemplo, género, año, etc.).
+Implementa la capacidad de ordenar la lista por diferentes propiedades (por ejemplo, título, fecha de lanzamiento, etc.). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My list of people</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: lightgreen;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+            .header {
+                height: 300px;
+                background-color: green;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h1 {
+                    color: yellowgreen;
+                }
+
+                .filtercontainer {
+                    /* border: 1px solid black; */
+                    color: white;
+                    width: 1000px;
+                    height: 50px;
+                }
+
+                .orderContainer {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    border: 1px solid black;
+                    width: 500px;
+                    height: 50px;
+                }
+            }
+
+            .mainContent {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .person {
+                    background-color: rgb(144, 189, 144);
+                    width: 20%;
+                    border-radius: 30px;
+                    margin: 20px 20px;
+
+                    ul {
+                        list-style: none;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    </style>
+    <script defer src="./people.js"></script>
+    <script>
+        window.onload = function () {
+
+            //LA REFERENCIA AL CONTAINER DE TARJETAS DE PERSONAS
+            var mainContentDiv = document.querySelector(".mainContent");
+
+            //FUNCIÓN PARA PINTAR LA ARRAY DE SUJETOS
+            var printPeople = function (list, container) {
+                container.innerHTML = "";
+                for (const l of list) {
+                    let personDiv = document.createElement("div");
+                    personDiv.classList.add("person");
+                    let ul = document.createElement("ul")
+                    let li1 = document.createElement("li");
+                    li1.innerText = `Name: ${l.name}`;
+                    let li4 = document.createElement("li");
+                    li4.innerText = `Surname: ${l.last_name}`;
+                    let li2 = document.createElement("li");
+                    li2.innerText = `Age: ${l.age}`;
+                    let li3 = document.createElement("li");
+                    li3.innerText = `Height: ${l.height}`;
+                    ul.appendChild(li1);
+                    ul.appendChild(li4);
+                    ul.appendChild(li2);
+                    ul.appendChild(li3);
+                    personDiv.appendChild(ul);
+                    mainContentDiv.appendChild(personDiv);
+                }
+            }
+
+            //PINTO LA ARRAY DE PERSONAS AL INICIAR
+            printPeople(people, mainContentDiv);
+
+            //FILTRO NOMBRE Y APELLIDO
+            var filterByName = document.querySelector("#filterByName");
+            filterByName.addEventListener("input", function () {
+                if (filterByName.value.length > 3) {
+                    let filterFun = (person) => {
+                        return (
+                            (person.name.toLowerCase() == filterByName.value.toLowerCase() ||
+                                person.last_name.toLowerCase() == filterByName.value.toLowerCase())
+                        );
+                    }
+
+                    let filteredPeople = people.filter(filterFun);
+                    printPeople(filteredPeople, mainContentDiv);
+                } else {
+                    printPeople(people, mainContentDiv);
+                }
+            })
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>My List of People</h1>
+        <div class="filtercontainer">
+            <label for="filterByName">Filter by Name or surname >></label>
+            <input type="text" name="" id="filterByName">
+            <label for="filterByAge">Filter by Age >></label>
+            <input type="number" name="" id="filterByAge">
+            <label for="filterByHeight">Filter by Height >></label>
+            <input type="number" name="" id="filterByHeight">
+        </div>
+        <div class="orderContainer"></div>
+    </div>
+    <div class="mainContent">
+        <div class="person">
+            <ul>
+                <li>Name</li>
+                <li>Age</li>
+                <li>Height</li>
+                <li>Last-name</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

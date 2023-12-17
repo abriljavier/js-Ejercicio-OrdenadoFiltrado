@@ -1,0 +1,22 @@
+var people = [
+    { name: "Juan", age: 25, height: 1.75, last_name: "Gomez" },
+    { name: "Maria", age: 30, height: 1.65, last_name: "Rodriguez" },
+    { name: "Carlos", age: 22, height: 1.80, last_name: "Martinez" },
+    { name: "Ana", age: 28, height: 1.70, last_name: "Lopez" },
+    { name: "Pedro", age: 35, height: 1.78, last_name: "Perez" },
+    { name: "Laura", age: 29, height: 1.68, last_name: "Fernandez" },
+    { name: "Sergio", age: 26, height: 1.85, last_name: "Garcia" },
+    { name: "Isabel", age: 31, height: 1.62, last_name: "Diaz" },
+    { name: "David", age: 27, height: 1.76, last_name: "Hernandez" },
+    { name: "Carmen", age: 33, height: 1.73, last_name: "Gutierrez" },
+    { name: "Pablo", age: 24, height: 1.79, last_name: "Vazquez" },
+    { name: "Elena", age: 32, height: 1.67, last_name: "Sanchez" },
+    { name: "Javier", age: 23, height: 1.81, last_name: "Jimenez" },
+    { name: "Raquel", age: 34, height: 1.69, last_name: "Alonso" },
+    { name: "Alejandro", age: 28, height: 1.74, last_name: "Molina" },
+    { name: "Juan", age: 29, height: 1.76, last_name: "Gomez" },
+    { name: "Maria", age: 33, height: 1.68, last_name: "Martinez" },
+    { name: "Carlos", age: 25, height: 1.79, last_name: "Rodriguez" },
+    { name: "Ana", age: 27, height: 1.72, last_name: "Lopez" },
+    { name: "Pedro", age: 36, height: 1.77, last_name: "Perez" }
+];
